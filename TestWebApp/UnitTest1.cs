@@ -24,23 +24,24 @@ namespace TestWebApp
             //Add Burger to Shopping Cart and Checkout
             driver.Manage().Window.Maximize();
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[1]/ion-content[1]/div[4]/div[1]/ion-button[3]")).Click();
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[1]/ion-content[1]/div[4]/div[1]/ion-button[3]")).Click();//Select Burger Menu
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//ion-label/h4[text()='Burger']//parent::ion-label/following-sibling::div/div[2]/ion-button")).Click();
+            driver.FindElement(By.XPath("//ion-label/h4[text()='Burger']//parent::ion-label/following-sibling::div/div[2]/ion-button")).Click();//Select Burger Item and add 1 Burger
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[1]/ion-radio-group[1]/ion-item[2]/ion-radio[1]")).Click();
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[1]/ion-radio-group[1]/ion-item[2]/ion-radio[1]")).Click();//Opt for 300g Burger
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[2]/ion-item[2]/ion-checkbox[1]")).Click();
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[2]/ion-item[2]/ion-checkbox[1]")).Click();//Select Sylteagurk blæh 2
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-grid[1]/ion-row[1]/ion-button[2]")).Click();
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-grid[1]/ion-row[1]/ion-button[2]")).Click(); 
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[6]/ion-radio-group[1]/ion-item[3]/ion-radio[1]")).Click();
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[6]/ion-radio-group[1]/ion-item[3]/ion-radio[1]")).Click(); // Add Tomataer
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-grid[1]/ion-row[1]/ion-button[2]")).Click();
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-grid[1]/ion-row[1]/ion-button[2]")).Click(); // Add to Cart
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//ion-button[contains(text(),'Til betaling')]")).Click();
+            driver.FindElement(By.XPath("//ion-button[contains(text(),'Til betaling')]")).Click(); // Go to Payment
             System.Threading.Thread.Sleep(1000);
-            
+            Assert.AreEqual("Burger", driver.FindElement(By.XPath("//div[contains(text(),'Burger')]")).Text);
+            Assert.AreEqual("1", driver.FindElement(By.XPath("//*[@id='main']/div[1]/ion-content/div[1]/ion-col/div[1]/div[2]/ion-row/ion-col[2]/div/div")).Text);
 
 
 
