@@ -41,18 +41,9 @@ namespace TestWebApp
             driver.FindElement(By.XPath("//ion-button[contains(text(),'Til betaling')]")).Click(); // Go to Payment
             System.Threading.Thread.Sleep(1000);
             Assert.AreEqual("Burger", driver.FindElement(By.XPath("//div[contains(text(),'Burger')]")).Text);
-            Assert.AreEqual("1", driver.FindElement(By.XPath("//*[@id='main']/div[1]/ion-content/div[1]/ion-col/div[1]/div[2]/ion-row/ion-col[2]/div/div")).Text);
-
-
-
 
         }
 
-        [TestMethod]
-        public void ProceedtoCheckOut()
-        {
-
-        }
 
         [TestCleanup]
         public void TestCleanUp()
