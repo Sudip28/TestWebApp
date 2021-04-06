@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace TestWebApp
 {
@@ -14,9 +15,10 @@ namespace TestWebApp
         [TestInitialize]
         public void TestSetup()
         {
-            //Open Browser
+            //OpenBrowser
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(baseUrl);
+
         }
         [TestMethod]
         public void AddBurgerToShoppingCart()
@@ -32,7 +34,7 @@ namespace TestWebApp
             System.Threading.Thread.Sleep(1000);
             driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[2]/ion-item[2]/ion-checkbox[1]")).Click();//Select Sylteagurk blæh 2
             System.Threading.Thread.Sleep(1000);
-            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-grid[1]/ion-row[1]/ion-button[2]")).Click(); 
+            driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-grid[1]/ion-row[1]/ion-button[2]")).Click();
             System.Threading.Thread.Sleep(1000);
             driver.FindElement(By.XPath("//body/div[@id='root']/ion-app[1]/ion-router-outlet[1]/div[2]/ion-content[1]/ion-grid[1]/ion-grid[6]/ion-radio-group[1]/ion-item[3]/ion-radio[1]")).Click(); // Add Tomataer
             System.Threading.Thread.Sleep(1000);
@@ -40,15 +42,14 @@ namespace TestWebApp
             System.Threading.Thread.Sleep(1000);
             driver.FindElement(By.XPath("//ion-button[contains(text(),'Til betaling')]")).Click(); // Go to Payment
             System.Threading.Thread.Sleep(1000);
+
             Assert.AreEqual("Burger", driver.FindElement(By.XPath("//div[contains(text(),'Burger')]")).Text);
 
         }
 
-
         [TestCleanup]
-        public void TestCleanUp()
+        public void CleanUpTask()
         {
-            //Close Browser
             driver.Quit();
         }
     }
