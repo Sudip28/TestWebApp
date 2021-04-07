@@ -44,6 +44,10 @@ namespace TestWebApp
             System.Threading.Thread.Sleep(1000);
 
             Assert.AreEqual("Burger", driver.FindElement(By.XPath("//div[contains(text(),'Burger')]")).Text);
+            Assert.AreEqual("300 gr", driver.FindElement(By.XPath("//ion-col[contains(text(),'300 gr')]")).Text);
+            Assert.AreEqual("Sylteagurk blæh 2", driver.FindElement(By.XPath("//ion-col[contains(text(),'Sylteagurk blæh 2')]")).Text);
+            Assert.AreEqual("Tomater", driver.FindElement(By.XPath("//ion-col[contains(text(),'Tomater')]")).Text);
+
 
         }
 
